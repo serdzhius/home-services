@@ -4025,21 +4025,6 @@
             document.body.classList.remove("loaded_hiding");
         }), 500);
     };
-    const blogItems = document.querySelector(".blog__items");
-    let data;
-    let startItem = 0;
-    let endItem = 3;
-    if (blogItems) loadBlogItems();
-    async function loadBlogItems() {
-        const response = await fetch("../files/blog.json", {
-            method: "GET"
-        });
-        if (response.ok) {
-            const responseResult = await response.json();
-            data = responseResult;
-            initBlog(data, startItem, endItem);
-        } else alert("Error!");
-    }
     function initBlog(data, startItem, endItem) {
         const dataPart = data.items.slice(startItem, endItem);
         dataPart.forEach((item => {
